@@ -12,14 +12,14 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-[#3933a0] px-2 py-4 w-full">
-      <div className="max-w-[1200px] mx-auto flex items-center gap-2 justify-between">
+    <nav className="bg-[#00628f] px-2 py-4 w-full">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between">
         <Link href={"/"}>
           <Image src={logo} width={150} height={100} alt="logo" />
         </Link>
 
         <div
-          className={`hidden md:block z-[5] bg-[#3933a0] md:w-auto md:h-auto `}
+          className={`hidden md:block z-[5] bg-[#6fbfe4] md:w-auto md:h-auto `}
         >
           <ul className="flex items-center justify-center md:gap-16  md:flex-row">
             {dashboardLinks?.map((link, index) => {
@@ -39,7 +39,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <NavbarDropdown />
           <NavDropdown />
         </div>

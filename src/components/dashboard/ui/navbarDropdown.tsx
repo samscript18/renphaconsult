@@ -18,7 +18,10 @@ const NavbarDropdown = () => {
   return (
     <div className="relative">
       <Image
-        src={user?.profilePicture as string}
+        src={
+          (user?.profilePicture as string) ||
+          "https://res.cloudinary.com/dynopc0cn/image/upload/v1728734784/avatar_y…"
+        }
         alt="profile"
         width={40}
         height={40}
@@ -27,11 +30,11 @@ const NavbarDropdown = () => {
       />
 
       {tabOpened && (
-        <div className="absolute scale-up-center top-[105%] right-0 w-[150px] bg-[#f7f7f7] rounded-md overflow-hidden z-20">
+        <div className="absolute scale-up-center top-[105%] right-0 w-[150px] bg-[#00628f] rounded-md overflow-hidden z-20">
           <Link
             href={"/dashboard/profile"}
             onClick={toggleTab}
-            className="w-full bg-transparent hover:bg-[#f2f2f2] block text-[.8rem] py-4 font-semibold px-4 cursor-pointer"
+            className="w-full bg-transparent hover:bg-[#f2f2f2] hover:text-[#00628f] block text-[.8rem] py-4 font-semibold px-4 cursor-pointer"
           >
             Profile
           </Link>

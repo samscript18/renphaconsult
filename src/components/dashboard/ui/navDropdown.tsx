@@ -27,7 +27,7 @@ const NavDropdown = () => {
       )}
 
       {tabOpened && (
-        <div className="absolute scale-up-center top-[115%] right-0 w-[180px] text-center h-auto bg-[#f7f7f7] rounded-lg shadow-md z-10">
+        <div className="absolute scale-up-center top-[115%] right-0 w-[180px] text-center h-auto bg-[#00628f] rounded-lg shadow-md z-10">
           {dashboardLinks?.map((link, index) => {
             return (
               <li
@@ -37,8 +37,8 @@ const NavDropdown = () => {
               >
                 <Link
                   href={link.href}
-                  className={`hover:font-bold py-3 px-4 text-[.9rem] text-center uppercase ${
-                    pathname.includes(link.href) && "font-bold text-primary"
+                  className={`hover:font-bold py-3 px-4 text-[.9rem] text-white text-center uppercase ${
+                    pathname.includes(link.href) && "font-bold text-black"
                   }`}
                 >
                   {link.text}
