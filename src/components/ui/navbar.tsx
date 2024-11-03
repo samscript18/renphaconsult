@@ -4,7 +4,7 @@ import logo from "../../../public/images/logos/logo1.png";
 const Navbar = () => {
   return (
     <>
-      <nav>
+      <nav className="relative">
         <Image src={logo} width={150} height={100} alt="logo" />
         <button
           className="nav-btn btn-primary"
