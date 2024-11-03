@@ -12,32 +12,28 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-[#00628f] px-2 py-4 w-full">
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between">
+    <nav className="bg-gray-200 px-4 md:px-[2.5rem] py-1.5 w-full">
+      <div className="w-full flex items-center justify-between">
         <Link href={"/"}>
           <Image src={logo} width={150} height={100} alt="logo" />
         </Link>
 
-        <div
-          className={`hidden md:block z-[5] bg-[#6fbfe4] md:w-auto md:h-auto `}
-        >
-          <ul className="flex items-center justify-center md:gap-16  md:flex-row">
-            {dashboardLinks?.map((link, index) => {
-              return (
-                <li key={index} className="md:py-0">
-                  <Link
-                    href={link.href}
-                    className={`hover:font-bold py-3 px-4 text-white md:text-[.75rem] uppercase ${
-                      pathname.includes(link.href) && "font-bold"
-                    }`}
-                  >
-                    {link.text}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <ul className="hidden z-[5] w-full h-auto mx-auto md:flex items-center justify-center gap-[15rem]">
+          {dashboardLinks?.map((link, index) => {
+            return (
+              <li key={index} className="md:pt-6">
+                <Link
+                  href={link.href}
+                  className={`hover:font-bold py-3 px-4 text-[#00628f] md:text-[.75rem] no-underline uppercase ${
+                    pathname.includes(link.href) && "font-bold"
+                  }`}
+                >
+                  {link.text}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
 
         <div className="flex items-center gap-4">
           <NavbarDropdown />

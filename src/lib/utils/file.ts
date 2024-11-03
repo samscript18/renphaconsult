@@ -15,7 +15,7 @@ export async function uploadFile(file: File): Promise<string> {
 
     return response?.data?.secure_url;
   } catch (error: any) {
-    return errorHandler("unable to upload file");
+    return errorHandler(error);
   }
 }
 

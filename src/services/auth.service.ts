@@ -2,12 +2,10 @@ import { http } from "@/lib/config/axios.config";
 import { errorHandler } from "@/lib/utils/error";
 import { TokenStorage, UserStorage } from "@/lib/utils/localStorage";
 import { LoginDTO, SignUpDTO } from "@/schema/dto/auth.dto";
-import { useMutateResult } from "@/schema/interfaces/query.interface";
-import { User } from "@/schema/interfaces/user.interface";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-export const useSignUp = (data: SignUpDTO): useMutateResult<User> => {
+export const useSignUp = (data: SignUpDTO) => {
   const payload = useMutation({
     mutationKey: ["useSignUp"],
     mutationFn: async () => {
@@ -29,9 +27,7 @@ export const useSignUp = (data: SignUpDTO): useMutateResult<User> => {
   return payload;
 };
 
-export const useLogin = (
-  data: LoginDTO
-): useMutateResult<{ accessToken: string }> => {
+export const useLogin = (data: LoginDTO) => {
   const payload = useMutation({
     mutationKey: ["useLogin"],
     mutationFn: async () => {

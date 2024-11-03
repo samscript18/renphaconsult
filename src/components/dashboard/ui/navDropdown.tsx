@@ -15,19 +15,19 @@ const NavDropdown = () => {
       {tabOpened ? (
         <RiCloseLine
           size={35}
-          className="text-white cursor-pointer md:hidden"
+          className="text-[#00628f] cursor-pointer md:hidden"
           onClick={toggleTab}
         />
       ) : (
         <HiOutlineMenu
           size={35}
-          className="text-white cursor-pointer md:hidden"
+          className="text-[#00628f] cursor-pointer md:hidden"
           onClick={toggleTab}
         />
       )}
 
       {tabOpened && (
-        <div className="absolute scale-up-center top-[115%] right-0 w-[180px] text-center h-auto bg-[#00628f] rounded-lg shadow-md z-10">
+        <div className="absolute scale-up-center top-[115%] right-0 w-[160px] text-center h-auto bg-[#00628f] rounded-lg shadow-md z-10">
           {dashboardLinks?.map((link, index) => {
             return (
               <li
@@ -37,8 +37,8 @@ const NavDropdown = () => {
               >
                 <Link
                   href={link.href}
-                  className={`hover:font-bold py-3 px-4 text-[.9rem] text-white text-center uppercase ${
-                    pathname.includes(link.href) && "font-bold text-black"
+                  className={`hover:font-bold py-3 px-4 text-[.9rem] text-white text-center capitalize no-underline ${
+                    pathname.includes(link.href) && "font-bold"
                   }`}
                 >
                   {link.text}

@@ -20,7 +20,7 @@ const NavbarDropdown = () => {
       <Image
         src={
           (user?.profilePicture as string) ||
-          "https://res.cloudinary.com/dynopc0cn/image/upload/v1728734784/avatar_y…"
+          "https://res.cloudinary.com/dynopc0cn/image/upload/v1728734784/avatar_ym1ctb.jpg"
         }
         alt="profile"
         width={40}
@@ -34,12 +34,12 @@ const NavbarDropdown = () => {
           <Link
             href={"/dashboard/profile"}
             onClick={toggleTab}
-            className="w-full bg-transparent hover:bg-[#f2f2f2] hover:text-[#00628f] block text-[.8rem] py-4 font-semibold px-4 cursor-pointer"
+            className="w-full bg-transparent hover:bg-[#00648f] text-[#fff] block text-[.8rem] py-4 font-semibold px-4 cursor-pointer no-underline"
           >
             Profile
           </Link>
           <div
-            className="w-full bg-transparent hover:bg-[#f2f2f2] block text-[.8rem] py-4 font-semibold text-red-700 px-4 cursor-pointer"
+            className="w-full bg-transparent hover:bg-[#00648f] block text-[.8rem] py-4 font-semibold text-red-700 px-4 cursor-pointer"
             onClick={() => {
               logout();
               toggleTab();
