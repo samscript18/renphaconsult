@@ -8,7 +8,7 @@ export const useGetDestinations = () => {
     queryKey: ["useGetDestinations"],
     queryFn: async () => {
       try {
-        const response = await https.get<Destination>(`/destination`);
+        const response = await https.get<Destination[]>(`/destination`);
 
         return response?.data;
       } catch (error) {
@@ -25,7 +25,7 @@ export const useGetDestinationsBySearch = (location: string) => {
     queryKey: ["useGetDestinationsBySearch"],
     queryFn: async () => {
       try {
-        const response = await https.get<Destination>(
+        const response = await https.get<Destination[]>(
           `/destination/search?search=${location}`
         );
 
@@ -44,7 +44,7 @@ export const useGetDestinationsByRecommendation = (budget: number) => {
     queryKey: ["useGetDestinationsByRecommendation"],
     queryFn: async () => {
       try {
-        const response = await https.get<Destination>(
+        const response = await https.get<Destination[]>(
           `/destination/recommend?recommend=${budget}`
         );
 
