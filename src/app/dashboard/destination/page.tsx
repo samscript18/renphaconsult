@@ -10,20 +10,23 @@ const DestinationPage = () => {
 
   if (!destinations)
     return (
-      <h2 className="text-[1.2rem] font-semibold">Sorry, there are no available destinations at the moment.</h2>
+      <h2 className="text-[1.2rem] font-semibold">
+        Sorry, there are no available destinations at the moment.
+      </h2>
     );
   return (
     <section>
-      {isLoading && (
+      {isLoading ? (
         <div className="flex justify-center items-center">
           <Loader loading={isLoading} loadingText="Fetching Destinations..." />
         </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-11 mt-[5rem]">
+          {destinations.map((destination: IDestination) => {
+            return <Destination key={destination._id} {...destination} />;
+          })}
+        </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-11 mt-[5rem]">
-        {destinations.map((destination: IDestination) => {
-          return <Destination key={destination._id} {...destination} />;
-        })}
-      </div>
     </section>
   );
 };
