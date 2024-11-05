@@ -5,46 +5,63 @@ import ScrollContainers from "@/components/ui/ScrollContainers";
 import { useGetDestination } from "@/services/destination.service";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import img from "../../../public/images/img-1.jpg";
+import img from "../../../../../public/images/austrialia-1.jpg";
+import { Destination } from "@/schema/interfaces/destination.interface";
+import { formatValue } from "@/lib/utils/format.utils";
 
 const DestinationPage = () => {
   const { id: destinationId } = useParams<{ id: string }>();
-  const { data: destination, isLoading } = useGetDestination(destinationId);
-
-  if (isLoading)
-    return (
-      <Loader loading={isLoading} loadingText="Fetching Destinations..." />
-    );
+  const { data, isPending } = useGetDestination(destinationId);
+  const destination: Destination = data;
+  const gallery = [
+    { id: 1, img },
+    { id: 2, img },
+    { id: 3, img },
+    { id: 4, img },
+  ];
   return (
-    <div>
-      <ScrollContainers width={150} displayWidgets={false}>
-        {destination.gallery.map(() => {
-          return (
-            <Image
-              key={destination._id}
-              src={img}
-              alt={destination.name}
-              width={100}
-              height={400}
-            />
-          );
-        })}
-      </ScrollContainers>
-      <Image
-        src={destination.mainImage}
-        alt={destination.name}
-        width={100}
-        height={400}
-      />
-      <footer className="py-[1.5rem] px-[2rem]">
-        <div className="flex justify-between items-center mb-[1.5rem]">
-          <h4 className="mb-0">{destination.name}</h4>
-          <h4 className="mb-0 text-[#fff] bg-[#00628f] py-[0.25rem] px-[0.5rem] rounded-sm">
-            ₦{destination.budget}
-          </h4>
-        </div>
-        <p>{destination.description}</p>
-      </footer>
+    <div className="w-full h-full mt-[8rem]">
+      {isPending && (
+        <Loader
+          loading={isPending}
+          loadingText="Fetching Destination Details..."
+        />
+      )}
+      {gallery.length === 0 ? (
+        <Image
+          key={destination._id}
+          src={img}
+          alt={destination.name}
+          className="w-auto h-[250px] rounded-md"
+        />
+      ) : (
+        <ScrollContainers width={150}>
+          {gallery.map((image) => {
+            return (
+              <Image
+                key={image.id}
+                src={image.img}
+                alt={destination.name}
+                className="w-auto h-[250px]"
+              />
+            );
+          })}
+        </ScrollContainers>
+      )}
+      <div className="py-[1.5rem]">
+        <h3 className="text-[1.1rem] font-bold">Name:</h3>
+        <p className="mb-0 text-[1rem]">{destination.name}</p>
+        <h3 className="text-[1.1rem] font-bold mt-4">Description:</h3>
+        <p className="text-[1rem] mb-4">{destination.description}</p>
+        <h3 className="text-[1.1rem] font-bold">Location:</h3>
+        <p className="text-[1rem] mb-4">{destination.location}</p>
+        <h3 className="text-[1.1rem] font-bold">Budget:</h3>
+        <h4 className="mb-0 text-[#fff] text-[1.1rem] bg-[#00628f] max-w-fit py-[0.8rem] px-[1rem] rounded-md">
+          ₦{formatValue(destination.budget.toString())}
+        </h4>
+        <h3 className="text-[1.1rem] font-bold mt-4">Average Rating:</h3>
+        <p className="text-[1rem]">{destination.averageRating}</p>
+      </div>
     </div>
   );
 };

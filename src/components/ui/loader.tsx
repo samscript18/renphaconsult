@@ -1,5 +1,5 @@
-import React from 'react';
-import { BiLoaderAlt } from 'react-icons/bi';
+import React from "react";
+import { BiLoaderAlt } from "react-icons/bi";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   loading: boolean;
@@ -12,9 +12,12 @@ const Loader = ({ loading, loadingText, ...props }: Props) => {
   }
 
   return (
-    <div {...props} className={`flex items-center gap-2  ${props.className}`}>
-      <BiLoaderAlt size={24} className="animate-spin" />
-      {loadingText && <p>{loadingText}</p>}
+    <div
+      {...props}
+      className={`flex justify-center items-center gap-2  ${props.className}`}
+    >
+      <BiLoaderAlt size={24} className="text-[#00628f] animate-spin" />
+      {loadingText && <p className="text-[#00628f] my-auto">{loadingText}</p>}
     </div>
   );
 };

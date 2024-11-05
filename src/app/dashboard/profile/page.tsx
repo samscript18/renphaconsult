@@ -6,7 +6,7 @@ import { ButtonContained } from "@/components/ui/buttons";
 import TextField from "@/components/ui/textField";
 import { FormEvent, useEffect, useState } from "react";
 import Loader from "@/components/ui/loader";
-import { uploadFile } from "@/lib/utils/file";
+import { convertUrl, uploadFile } from "@/lib/utils/file";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
@@ -37,11 +37,16 @@ const Profile = () => {
     push("/dashboard/destination");
   };
 
+  const handleImageUrl = async () => {
+    const newFile = await convertUrl(user?.profilePicture);
+    setProfilePicture(newFile);
+  };
+
   useEffect(() => {
     setFirstName(user?.firstName);
     setLastName(user?.lastName);
     setEmail(user?.email);
-    setProfilePicture(user?.profilePicture);
+    handleImageUrl();
   }, [user]);
 
   if (isPending)
@@ -51,14 +56,25 @@ const Profile = () => {
 
   return (
     <section>
+      {isPending && (
+        <div className="flex justify-center items-center">
+          <Loader
+            loading={isPending}
+            loadingText="Fetching Profile Details..."
+          />
+        </div>
+      )}
       <form
         onSubmit={handleSubmit}
-        className="w-full h-auto bg-white py-8 px-4 md:px-12 flex flex-col shadow-md rounded-lg"
+        className="w-full h-auto bg-white mt-[8rem] py-8 px-4 md:px-12 flex flex-col shadow-md rounded-lg"
       >
         <div className="w-full flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="flex flex-col md:flex-row justify-start items-center">
             <Image
-              src={user?.profilePicture as string}
+              src={
+                (user?.profilePicture as string) ||
+                "https://res.cloudinary.com/dynopc0cn/image/upload/v1728734784/avatar_ym1ctb.jpg"
+              }
               alt={user?.lastName}
               width={200}
               height={200}
@@ -112,14 +128,14 @@ const Profile = () => {
                 LabelProps={{ className: "text-[.8rem] font-[500]" }}
               ></TextField>
               <TextField
-                label="Email Address"
+                label="LastName"
                 InputProps={{
-                  id: "email",
-                  name: "email",
-                  type: "email",
-                  value: email,
+                  id: "lastName",
+                  name: "lastName",
+                  type: "text",
+                  value: lastName,
                   onChange(e) {
-                    setEmail(e.target.value);
+                    setLastName(e.target.value);
                   },
                   className: "focus:border-primary text-[.7rem]",
                 }}
@@ -129,14 +145,14 @@ const Profile = () => {
             </div>
             <div className="w-full flex flex-col md:pl-4">
               <TextField
-                label="LastName"
+                label="Email Address"
                 InputProps={{
-                  id: "lastName",
-                  name: "lastName",
-                  type: "text",
-                  value: lastName,
+                  id: "email",
+                  name: "email",
+                  type: "email",
+                  value: email,
                   onChange(e) {
-                    setLastName(e.target.value);
+                    setEmail(e.target.value);
                   },
                   className: "focus:border-primary text-[.7rem]",
                 }}
@@ -174,12 +190,12 @@ const Profile = () => {
                 LabelProps={{ className: "text-[.8rem] font-[500]" }}
               ></TextField>
               <TextField
-                label="Email Address"
+                label="LastName"
                 InputProps={{
-                  id: "email",
-                  name: "email",
-                  type: "email",
-                  defaultValue: email,
+                  id: "lastName",
+                  name: "lastName",
+                  type: "text",
+                  defaultValue: lastName,
                   readOnly: true,
                   className: "focus:border-primary text-[.7rem]",
                 }}
@@ -189,12 +205,12 @@ const Profile = () => {
             </div>
             <div className="w-full flex flex-col md:pl-4">
               <TextField
-                label="LastName"
+                label="Email Address"
                 InputProps={{
-                  id: "lastName",
-                  name: "lastName",
-                  type: "text",
-                  defaultValue: lastName,
+                  id: "email",
+                  name: "email",
+                  type: "email",
+                  defaultValue: email,
                   readOnly: true,
                   className: "focus:border-primary text-[.7rem]",
                 }}

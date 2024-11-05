@@ -11,7 +11,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "RenphaConsulting",
-  description: "Travel Consultation Home",
+  description: "Home For Travel Consultation",
 };
 
 export default function RootLayout({

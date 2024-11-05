@@ -37,7 +37,7 @@ const NavDropdown = () => {
               >
                 <Link
                   href={link.href}
-                  className={`hover:font-bold py-3 px-4 text-[.9rem] text-white text-center capitalize no-underline ${
+                  className={`hover:font-bold py-3 px-4 text-[1.05rem] leading-6 text-white text-center capitalize no-underline ${
                     pathname.includes(link.href) && "font-bold"
                   }`}
                 >

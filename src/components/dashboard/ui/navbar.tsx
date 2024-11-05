@@ -12,7 +12,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-gray-200 px-4 md:px-[2.5rem] py-1.5 w-full">
+    <nav className="bg-gray-200 px-1.5 md:px-[2.5rem] py-1.5 w-full">
       <div className="w-full flex items-center justify-between">
         <Link href={"/"}>
           <Image src={logo} width={150} height={100} alt="logo" />

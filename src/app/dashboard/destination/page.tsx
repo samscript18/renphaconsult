@@ -8,13 +8,18 @@ import { useGetDestinations } from "@/services/destination.service";
 const DestinationPage = () => {
   const { data: destinations, isLoading } = useGetDestinations();
 
-  if (isLoading)
+  if (!destinations)
     return (
-      <Loader loading={isLoading} loadingText="Fetching Destinations..." />
+<h2 className="text-[1.2rem] font-semibold">Sorry, there are no available destinations at the moment.</h2>
     );
   return (
     <section>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {isLoading && (
+        <div className="flex justify-center items-center">
+          <Loader loading={isLoading} loadingText="Fetching Destinations..." />
+        </div>
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-11 mt-[5rem]">
         {destinations.map((destination: IDestination) => {
           return <Destination key={destination._id} {...destination} />;
         })}

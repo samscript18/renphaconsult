@@ -3,13 +3,13 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 type scrollContainerProps = {
   children: ReactElement[];
   width: number;
-  displayWidgets: boolean;
+  // displayWidgets: boolean;
 };
 
 const ScrollContainers: FC<scrollContainerProps> = ({
   children,
   width,
-  displayWidgets,
+  // displayWidgets,
 }) => {
   const container = React.useRef<any>(null);
   const [scrollWidth, setScrollWidth] = useState<number>(0);

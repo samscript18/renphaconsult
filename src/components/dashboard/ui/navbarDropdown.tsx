@@ -34,12 +34,12 @@ const NavbarDropdown = () => {
           <Link
             href={"/dashboard/profile"}
             onClick={toggleTab}
-            className="w-full bg-transparent hover:bg-[#00648f] text-[#fff] block text-[.8rem] py-4 font-semibold px-4 cursor-pointer no-underline"
+            className="w-full bg-transparent hover:bg-[#00648f] text-[#fff] block text-[.9rem] leading-6 py-4 font-semibold px-4 cursor-pointer no-underline"
           >
             Profile
           </Link>
           <div
-            className="w-full bg-transparent hover:bg-[#00648f] block text-[.8rem] py-4 font-semibold text-red-700 px-4 cursor-pointer"
+            className="w-full bg-transparent hover:bg-[#00648f] block text-[.9rem] leading-6 py-4 font-semibold text-red-700 px-4 cursor-pointer"
             onClick={() => {
               logout();
               toggleTab();
