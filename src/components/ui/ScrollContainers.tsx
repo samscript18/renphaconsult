@@ -2,17 +2,17 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 
 type scrollContainerProps = {
   children: ReactElement[];
-  width: number;
+  // width: number;
   // displayWidgets: boolean;
 };
 
 const ScrollContainers: FC<scrollContainerProps> = ({
   children,
-  width,
+  // width,
   // displayWidgets,
 }) => {
   const container = React.useRef<any>(null);
-  const [scrollWidth, setScrollWidth] = useState<number>(0);
+  const [scrollWidth] = useState<number>(0);
 
   useEffect(() => {
     container?.current?.scroll({

@@ -35,7 +35,7 @@ const DestinationPage = () => {
           className="w-auto h-[250px] rounded-md"
         />
       ) : (
-        <ScrollContainers width={150}>
+        <ScrollContainers>
           {gallery.map((image) => {
             return (
               <Image
