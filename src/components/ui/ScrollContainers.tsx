@@ -2,7 +2,7 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 
 type scrollContainerProps = {
   children: ReactElement[];
-  width: number;
+  // width: number;
   // displayWidgets: boolean;
 };
 

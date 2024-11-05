@@ -10,7 +10,7 @@ const DestinationPage = () => {
 
   if (!destinations)
     return (
-<h2 className="text-[1.2rem] font-semibold">Sorry, there are no available destinations at the moment.</h2>
+      <h2 className="text-[1.2rem] font-semibold">Sorry, there are no available destinations at the moment.</h2>
     );
   return (
     <section>
