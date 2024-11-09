@@ -7,7 +7,7 @@ const Navbar = () => {
     <>
       <nav className="relative">
         <Image src={logo} width={150} height={100} alt="logo" />
-        <div className="flex justify-center items-center gap-6 absolute md:top-[1.5rem] md:right-[10rem]">
+        <div className="hidden md:flex justify-center items-center gap-6 absolute md:top-[1.5rem] md:right-[10rem]">
           <Link
             href={"/login"}
             className={`min-w-[120px] disabled:opacity-[.9] disabled:text-[rgb(34,34,34)] disabled:bg-[#e2e2e2] disabled:font-bold disabled:border-[#e2e2e2] disabled:cursor-not-allowed px-2 py-2.5 rounded-md text-[.95rem] bg-[#00628f] text-white cursor-pointer border-[1.5px] border-[#00628f] flex items-center justify-center gap-4 no-underline`}
