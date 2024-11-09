@@ -1,191 +1,178 @@
-body{
- margin:0;
- padding:0;
- background-color:whitesmoke;
- font-weight:bold;   
+body {
+  margin: 0;
+  padding: 0;
+  background-color: whitesmoke;
+  font-weight: bold;
 }
 .hero-section {
-    
-    color: white;
-    padding: 100px 0;
+  color: white;
+  padding: 100px 0;
 }
-.bg-img{
-    background:url('images/header-5.jpg') no-repeat center center;
+.bg-img {
+  background: url("images/header-5.jpg") no-repeat center center;
 
-    background-size: cover;
-    background-position: center;
+  background-size: cover;
+  background-position: center;
 }
-nav{
-    width:100%;
-    background-color:whitesmoke;
-    box-shadow:5px 2px 4px #000;
-    position:fixed;
-    z-index:1;
+nav {
+  width: 100%;
+  background-color: whitesmoke;
+  box-shadow: 5px 2px 4px #000;
+  position: fixed;
+  z-index: 1;
 }
-nav img{
-    margin:3px 0 10px 5px;
+nav img {
+  margin: 3px 0 10px 5px;
 }
-.nav-btn{
-    background-color:#00628f;
-    margin:25px 10px 0 0;
-    width:auto;
-    height:3rem;
-    border:2px solid #00628f;
-    border-radius:15px;
-    float:right;
-    align-items:center;
-    justify-content:center;
+.nav-btn {
+  background-color: #00628f;
+  margin: 25px 10px 0 0;
+  width: auto;
+  height: 3rem;
+  border: 2px solid #00628f;
+  border-radius: 15px;
+  float: right;
+  align-items: center;
+  justify-content: center;
 }
-.nav-btn i{
-    color:#fff;
-    position:aboslute;
-    align-items:center;
-    justify-content:center;
-    margin-top:-3px;
-    padding:0;
-    font-size:40px;
+.nav-btn i {
+  color: #fff;
+  position: aboslute;
+  align-items: center;
+  justify-content: center;
+  margin-top: -3px;
+  padding: 0;
+  font-size: 40px;
 }
-.offcanvas{
-    background-color:whitesmoke;
+.offcanvas {
+  background-color: whitesmoke;
 }
-.offcanvas a{
-    color:#00628f;
-    padding:20px;
-    list-style-type:none;
-    text-decoration:none;
+.offcanvas a {
+  color: #00628f;
+  padding: 20px;
+  list-style-type: none;
+  text-decoration: none;
 }
-.offcanvas li:active{
-    color:#fff;
-    background-color:#00628f;
-    width:active;
-    height:5v;
+.offcanvas li:active {
+  color: #fff;
+  background-color: #00628f;
+  width: active;
+  height: 5v;
 }
-.offcanvas li:after{
-    color:#fff;
-    background-color:#00628f;
+.offcanvas li:after {
+  color: #fff;
+  background-color: #00628f;
 }
-.offcanvas ul{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
+.offcanvas ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.offcanvas li{
-    color:#00628f;
-    font-weight:bold;
-    
+.offcanvas li {
+  color: #00628f;
+  font-weight: bold;
 }
-.offcanvas li:hover{
-    color:#fff;
-    background-color:#00628f;
-    width:100%;
-    height:auto;
-    border:1px solid #fff;
-    border-radius:5px;
+.offcanvas li:hover {
+  color: #fff;
+  background-color: #00628f;
+  width: 100%;
+  height: auto;
+  border: 1px solid #fff;
+  border-radius: 5px;
 }
-
 
 /*top destination countries offered by renpha*/
-marquee{
-    color:#fff;
-    background-color:#00628f;
-    animation:move 20s infinite linear;
+marquee {
+  color: #fff;
+  background-color: #00628f;
+  animation: move 20s infinite linear;
 }
-@keyframes move{
-    0% {transform:translateX(0);}
-    100%{transform:translateX(4px);}
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(4px);
+  }
 }
-#topstudy-main{
-    width:98%;
-    height:auto;
-    margin-top:7rem;
-    margin-left:20px;
+#topstudy-main {
+  width: 98%;
+  height: auto;
+  margin-top: 7rem;
+  margin-left: 20px;
 }
-.front-text{
-    background-color:#fff;
+.front-text {
+  background-color: #fff;
 }
-.first-container{
-    width:100%;
-    height:130vh;
-    overflow-y:auto;
+.first-container {
+  width: 100%;
+  height: 130vh;
+  overflow-y: auto;
 }
-.row{
-    width:100%;
-    height:auto;
+.row {
+  width: 100%;
+  height: auto;
 }
-.card{
-    margin-top:1rem;
-    border:2px solid gray;
+.card {
+  margin-top: 1rem;
+  border: 2px solid gray;
 }
-h1{
-    color:darkred;
+h1 {
+  color: darkred;
 }
-h3{
-    color:#00628f;
-    background-color:whitesmoke;
+h3 {
+  color: #00628f;
+  background-color: whitesmoke;
 }
-.s-card{
-    top:-1rem;
+.s-card {
+  top: -1rem;
 }
-
-
-
-
 
 /*global requirement page in the blog page*/
-#global-main{
-    width:98%;
-    margin:0 auto;
-    color:#001f3f;
-    background-color:whitesmoke;
+#global-main {
+  width: 98%;
+  margin: 0 auto;
+  color: #001f3f;
+  background-color: whitesmoke;
 }
 
-h4{
-    color:#001f3f;
+h4 {
+  color: #001f3f;
 }
-small{
-    color:#3a6d8c;
+small {
+  color: #3a6d8c;
 }
-.gray-bg{
-    width:100%;
-    height:auto;
-    margin:0 auto;
-    text-align:center;
-    align-items:center;
-    justify-content:center;
-    background-color:;
+.gray-bg {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  /* background-color:; */
 }
-.gray-bg img{
-    padding:15px;
-    width:98%;
-    height:60vh;
-    object-fit:fill;
-    background-size:cover;
+.gray-bg img {
+  padding: 15px;
+  width: 98%;
+  height: 60vh;
+  object-fit: fill;
+  background-size: cover;
 }
-
-
-
-
-
-
-
-
-
 
 /*exciting scholarship for international students*/
 
-#scholarship-hero{
-    margin:0 auto;
-    width:100%;
+#scholarship-hero {
+  margin: 0 auto;
+  width: 100%;
 }
-#scholarship-hero h1{
-    margin-top:5rem;
+#scholarship-hero h1 {
+  margin-top: 5rem;
 }
-#scholarship-hero .row{
-    margin:0 auto;
-    width:90%;
-    
+#scholarship-hero .row {
+  margin: 0 auto;
+  width: 90%;
 }
-#scholarship-hero img{
-    width:100%;
-    height:auto;
+#scholarship-hero img {
+  width: 100%;
+  height: auto;
 }

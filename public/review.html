@@ -15,6 +15,23 @@
    <div id="nav-container">
         <nav>
             <img src="images/logos/logo1.png">
+            <div id="nav-btns" className="flex justify-center items-center gap-8">
+<a href="/login">
+	<button
+            class="min-w-[200px] px-4 py-2.5 rounded-md text-[.95rem] bg-[#00628f] text-white cursor-pointer border-[1.5px] border-[#00628f] flex items-center justify-center gap-4 no-underline"
+						
+						>
+            Log In
+          </button>
+				</a>
+				<a href="/register">
+					<button
+					class="min-w-[200px] transition duration-300 px-4 py-2.5 rounded-md bg-[#fff] text-[.95rem] border-[#00628f] text-[#00628f] !cursor-pointer border-[1.5px] flex items-center justify-center gap-4 no-underline"
+          >
+					Sign Up
+				</button>
+			</a>
+        </div>
             <button class="nav-btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-solid fa-bars"></i></button>
         </nav>
     </div>
@@ -32,6 +49,23 @@
             <a href="blog.html"><li>Blog</li></a>
             <a href="review.html"><li>Review</li></a>
         </ul>
+        <div id="lap-nav-btns" className="flex justify-center items-center md:hidden pb-[3rem] mx-auto">
+<a href="/login" class="hidden md:block">
+	<button
+            class="min-w-[200px] px-4 py-2.5 rounded-md text-[.95rem] bg-[#00628f] text-white cursor-pointer border-[1.5px] border-[#00628f] flex items-center justify-center gap-4 no-underline"
+						
+						>
+            Log In
+          </button>
+				</a>
+				<a href="/register" class="hidden md:block">
+					<button
+					class="min-w-[200px] transition duration-300 px-4 py-2.5 rounded-md bg-[#fff] text-[.95rem] border-[#00628f] text-[#00628f] !cursor-pointer border-[1.5px] flex items-center justify-center gap-4 no-underline"
+          >
+					Sign Up
+				</button>
+			</a>
+        </div>
       </div>
     </div>
     <br>

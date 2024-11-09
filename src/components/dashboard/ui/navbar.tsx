@@ -18,7 +18,7 @@ const Navbar = () => {
           <Image src={logo} width={150} height={100} alt="logo" />
         </Link>
 
-        <ul className="hidden z-[5] w-full h-auto mx-auto md:flex items-center justify-center gap-[15rem]">
+        <ul className="hidden z-[5] w-full h-auto mx-auto md:flex items-center justify-center md:gap-[8rem] lg:gap-[15rem]">
           {dashboardLinks?.map((link, index) => {
             return (
               <li key={index} className="md:pt-6">
