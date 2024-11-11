@@ -28,12 +28,6 @@ const DestinationPage = () => {
   const reviews: Review[] = reviewsData;
 
   const payload = useAddReviewToDestination(destinationId);
-  const gallery = [
-    { id: 1, img },
-    { id: 2, img },
-    { id: 3, img },
-    { id: 4, img },
-  ];
 
   const addReview = async (e: FormEvent) => {
     e.preventDefault();
@@ -50,7 +44,7 @@ const DestinationPage = () => {
         />
       ) : (
         <>
-          {gallery.length === 0 ? (
+          {destination.gallery?.length === 0 ? (
             <Image
               key={destination._id}
               src={img}
@@ -59,12 +53,14 @@ const DestinationPage = () => {
             />
           ) : (
             <ScrollContainers>
-              {gallery.map((image) => {
+              {destination.gallery?.map((image, index) => {
                 return (
                   <Image
-                    key={image.id}
-                    src={image.img}
+                    key={index}
+                    src={image}
                     alt={destination.name}
+                    width={250}
+                    height={250}
                     className="w-auto h-[250px]"
                   />
                 );
@@ -80,12 +76,12 @@ const DestinationPage = () => {
             <p className="text-[1rem] mb-4">{destination.location}</p>
             <h3 className="text-[1.1rem] font-bold">Budget:</h3>
             <h4 className="mb-0 text-[#fff] text-[1.1rem] bg-[#00628f] max-w-fit py-[0.8rem] px-[1rem] rounded-md">
-              ₦{formatValue(destination.budget.toString())}
+              ₦{formatValue(destination.budget?.toString())}
             </h4>
             <h3 className="text-[1.1rem] font-bold mt-4">Average Rating:</h3>
             <p className="text-[1rem]">{destination.averageRating}</p>
           </div>
-          {reviews.length === 0 ? (
+          {reviews?.length === 0 ? (
             <div className="flex justify-center items-center">
               <p className="text-[1rem]">
                 There are no reviews on this destination for now
@@ -94,7 +90,7 @@ const DestinationPage = () => {
           ) : (
             <div className="my-[2rem]">
               <h2 className="text-[1.25rem] font-bold mb-6">Reviews</h2>
-              {reviews.map((review) => {
+              {reviews?.map((review) => {
                 return (
                   <div
                     key={review._id}
@@ -118,7 +114,10 @@ const DestinationPage = () => {
               })}
             </div>
           )}
-          <form onSubmit={addReview} className="w-full md:w-[40vw] flex flex-col">
+          <form
+            onSubmit={addReview}
+            className="w-full md:w-[40vw] flex flex-col"
+          >
             <TextField
               InputProps={{
                 placeholder: "Enter your comments to review this destination",

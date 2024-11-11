@@ -7,7 +7,6 @@ import TextField from "@/components/ui/textField";
 import { Destination as IDestination } from "@/schema/interfaces/destination.interface";
 import {
   useGetDestinations,
-  useGetDestinationsByRecommendation,
   useGetDestinationsBySearch,
 } from "@/services/destination.service";
 import { FormEvent, useEffect, useState } from "react";
@@ -15,23 +14,16 @@ import { MdOutlineSearch } from "react-icons/md";
 
 const DestinationPage = () => {
   const [location, setLocation] = useState<string>("");
-  const [budget, setBudget] = useState<number>();
   const { data: destinations, isPending } = useGetDestinations();
   const [newDestinations, setNewDestinations] =
     useState<IDestination[]>(destinations);
   const { data: searchedDestinations, isPending: locationPending } =
     useGetDestinationsBySearch(location!);
-  const { data: recommendedDestinations, isPending: budgetPending } =
-    useGetDestinationsByRecommendation(budget!);
-  console.log(location);
 
   const getDestinationsByQueries = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (location) {
       setNewDestinations(await searchedDestinations);
-    }
-    if (budget) {
-      setNewDestinations(await recommendedDestinations);
     }
     setNewDestinations(destinations);
   };
@@ -41,15 +33,26 @@ const DestinationPage = () => {
   }, [destinations]);
 
   useEffect(() => {
-    if (searchedDestinations || recommendedDestinations) {
-      setNewDestinations(searchedDestinations || recommendedDestinations);
-    }
-  }, [searchedDestinations, recommendedDestinations]);
+    setNewDestinations(searchedDestinations);
+  }, [searchedDestinations]);
+
+  if (destinations?.length === 0 || searchedDestinations.length === 0) {
+    return (
+      <div className="flex justify-center items-center mt-[7rem]">
+        <h1 className="text-[1.3rem]">
+          Sorry, there are no destinations available at the moment
+        </h1>
+      </div>
+    );
+  }
   return (
     <section>
-      {isPending || locationPending || budgetPending ? (
-        <div className="flex justify-center items-center">
-          <Loader loading={isPending} loadingText="Fetching Destinations..." />
+      {isPending || locationPending ? (
+        <div className="flex justify-center items-center mt-[8rem]">
+          <Loader
+            loading={isPending || locationPending}
+            loadingText="Fetching Destinations..."
+          />
         </div>
       ) : (
         <div className="flex flex-col py-[8rem]">
@@ -72,30 +75,14 @@ const DestinationPage = () => {
                 }}
                 className="mt-4 border-none"
               />
-              <TextField
-                InputProps={{
-                  placeholder: "Enter budget",
-                  type: "tel",
-                  id: "budget",
-                  name: "budget",
-                  value: budget,
-                  onChange(e) {
-                    const value = Number(e.target.value);
-                    setBudget(value);
-                  },
-                }}
-                className="mt-4 border-none"
-              />
               <ButtonContained
                 type="submit"
                 className="w-[20px] md:w-[30px] h-[35px] mt-4 md:mt-0 px-auto no-underline"
-                loading={locationPending || budgetPending}
-                disabled={
-                  locationPending || budgetPending || (!budget && !location)
-                }
+                loading={locationPending}
+                disabled={locationPending && !location}
                 loadingText="Fetching..."
               >
-                {(!locationPending || !budgetPending) && (
+                {!locationPending && (
                   <MdOutlineSearch size={18} className="text-[#fff]" />
                 )}
               </ButtonContained>

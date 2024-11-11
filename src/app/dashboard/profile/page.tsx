@@ -71,8 +71,7 @@ const Profile = () => {
           <div className="flex flex-col md:flex-row justify-start items-center">
             <Image
               src={
-                (user?.profilePicture as string) ||
-                "https://res.cloudinary.com/dynopc0cn/image/upload/v1728734784/avatar_ym1ctb.jpg"
+                user?.profilePicture as string
               }
               alt={user?.lastName}
               width={200}

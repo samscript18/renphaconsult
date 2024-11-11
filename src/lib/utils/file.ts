@@ -6,7 +6,7 @@ export async function uploadFile(file: File): Promise<string> {
   try {
     const form = new FormData();
     form.append("file", file);
-    form.append("upload_preset", "agricme");
+    form.append("upload_preset", "renphaconsult");
 
     const response = await axios.post<{ secure_url: string }>(
       `https://api.cloudinary.com/v1_1/${secrets.cloudinary.cloudName}/upload`,
