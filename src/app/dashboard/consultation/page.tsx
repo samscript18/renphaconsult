@@ -11,7 +11,7 @@ const ConsultationPage = () => {
   const [destination, setDestination] = useState<string>("");
   const payload = useCreateConsultation();
 
-  const getConsultation = async (e: FormEvent) => {
+  const getConsultation = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await payload.mutateAsync({ question, destination });
   };
@@ -26,9 +26,8 @@ const ConsultationPage = () => {
           <p className="mt-6 text-[.9rem] font-semibold capitalize">
             {payload.data.question}
           </p>
-          <div className="flex flex-col mt-6 text-[.9rem]">
-            {formatData(payload.data.response)}
-          </div>
+          {/* <div className="mt-6 text-[.9rem]"></div> */}
+          <p>{formatData(payload.data.response)}</p>
         </div>
       ) : (
         <form

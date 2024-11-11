@@ -26,7 +26,6 @@ const Profile = () => {
     const profileImageUrl = await uploadFile(profilePicture!);
 
     await mutation.mutateAsync({
-      _id: user.id,
       email: email,
       firstName: firstName,
       lastName: lastName,

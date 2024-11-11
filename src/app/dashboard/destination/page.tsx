@@ -23,10 +23,9 @@ const DestinationPage = () => {
     useGetDestinationsBySearch(location!);
   const { data: recommendedDestinations, isPending: budgetPending } =
     useGetDestinationsByRecommendation(budget!);
+  console.log(location);
 
-  console.log(newDestinations);
-
-  const getDestinationsByQueries = async (e: FormEvent) => {
+  const getDestinationsByQueries = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (location) {
       setNewDestinations(await searchedDestinations);
@@ -54,16 +53,18 @@ const DestinationPage = () => {
         </div>
       ) : (
         <div className="flex flex-col py-[8rem]">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <form
+            onSubmit={getDestinationsByQueries}
+            className="flex flex-col md:flex-row justify-center md:justify-between items-center"
+          >
             <h1 className="text-[1.3rem] font-bold">Destinations</h1>
-            <form
-              onSubmit={getDestinationsByQueries}
-              className="flex flex-col md:flex-row gap-6"
-            >
+            <div className="flex flex-col md:flex-row gap-6">
               <TextField
                 InputProps={{
                   placeholder: "Enter location",
                   type: "text",
+                  id: "location",
+                  name: "location",
                   value: location,
                   onChange(e) {
                     setLocation(e.target.value);
@@ -75,6 +76,8 @@ const DestinationPage = () => {
                 InputProps={{
                   placeholder: "Enter budget",
                   type: "tel",
+                  id: "budget",
+                  name: "budget",
                   value: budget,
                   onChange(e) {
                     const value = Number(e.target.value);
@@ -90,15 +93,20 @@ const DestinationPage = () => {
                 disabled={
                   locationPending || budgetPending || (!budget && !location)
                 }
+                loadingText="Fetching..."
               >
-                <MdOutlineSearch size={18} className="text-[#fff]" />
+                {(!locationPending || !budgetPending) && (
+                  <MdOutlineSearch size={18} className="text-[#fff]" />
+                )}
               </ButtonContained>
-            </form>
-          </div>
+            </div>
+          </form>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-11 mt-[5rem]">
-            {newDestinations?.map((destination: IDestination) => {
-              return <Destination key={destination._id} {...destination} />;
-            })}
+            {(newDestinations || destinations)?.map(
+              (destination: IDestination) => {
+                return <Destination key={destination._id} {...destination} />;
+              }
+            )}
           </div>
         </div>
       )}

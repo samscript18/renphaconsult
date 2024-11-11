@@ -9,15 +9,20 @@ export const deFormatValue = (value: string): string => {
   return deFormattedValue;
 };
 
-export const formatData = (data: string): string => {
+export const formatData = (data: string) => {
+  // data = data
+  //   .replace(/^## (.*)$/gm, "<h2>$1</h2>\n")
+  //   .replace(/^\*\*([^\*]+)\*\*/gm, "<strong>$1</strong>")
+  //   .replace(/\*([^\*]+)\*/g, "<em>$1</em>")
+  //   .replace(/^\* (.*?)$/gm, "<ul><li>$1</li></ul>\n")
+  //   .replace(/<\/ul>\n<ul>/g, "\n")
+  //   .replace(/^"(.)"$/g, "$1");
+  // return data;
   data = data
-    .replace(/^## (.*)$/gm, "<h2>$1</h2>\n")
-    .replace(/^\*\*([^\*]+)\*\*/gm, "<strong>$1</strong>")
-    .replace(/\*([^\*]+)\*/g, "<em>$1</em>")
-    .replace(/^\* (.*?)$/gm, "<ul><li>$1</li></ul>\n");
-
-  data = data.replace(/<\/ul>\n<ul>/g, "\n");
-  console.log(data);
-
-  return data as string;
+    .replace(/^## (.*)$/gm, "$1\n")
+    .replace(/^\*\*([^\*]+)\*\*/gm, "$1\n")
+    .replace(/\*([^\*]+)\*/g, "$1\n")
+    .replace(/^\* (.*?)$/gm, "$1\n")
+    .replace(/<\/ul>\n<ul>/g, "\n");
+  return data;
 };
