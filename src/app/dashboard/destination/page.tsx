@@ -10,7 +10,6 @@ import {
   useGetDestinationsBySearch,
 } from "@/services/destination.service";
 import { FormEvent, useEffect, useState } from "react";
-import { MdOutlineSearch } from "react-icons/md";
 
 const DestinationPage = () => {
   const [location, setLocation] = useState<string>("");
@@ -82,9 +81,7 @@ const DestinationPage = () => {
                 disabled={locationPending && !location}
                 loadingText="Fetching..."
               >
-                {!locationPending && (
-                  <MdOutlineSearch size={18} className="text-[#fff]" />
-                )}
+                Search
               </ButtonContained>
             </div>
           </form>
