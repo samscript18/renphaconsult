@@ -35,7 +35,7 @@ const DestinationPage = () => {
     setNewDestinations(searchedDestinations);
   }, [searchedDestinations]);
 
-  if (destinations?.length === 0 || searchedDestinations.length === 0) {
+  if (destinations?.length === 0 || searchedDestinations?.length === 0) {
     return (
       <div className="flex justify-center items-center mt-[7rem]">
         <h1 className="text-[1.3rem]">
