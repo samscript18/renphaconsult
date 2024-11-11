@@ -95,7 +95,6 @@ const DestinationPage = () => {
                 loadingText="Fetching..."
               >
                 Search
-                )}
               </ButtonContained>
             </div>
           </form>
